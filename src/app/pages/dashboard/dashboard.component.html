@@ -1,0 +1,29 @@
+<h1 class="title">Food packages</h1>
+<section class="food-packages">
+  @for (foodPackage of foodPackages; track foodPackage.id) {
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title">Recipe ID: {{ foodPackage.recipeId }}</h3>
+      <p class="card-text">Status: {{ foodPackage.status }}</p>
+      <ul class="food-list">
+        @for (food of foodPackage.foods; track food.foodId) {
+        <li class="food-container">
+          <h4 class="food-name">
+            {{ food.name }} - <span class="food-type">{{ food.type }}</span> -
+            <span class="food-status">{{ food.status }}</span>
+          </h4>
+          <span class="food-description">{{ food.foodId }}</span>
+        </li>
+        } @empty {
+        <li class="empty">No foods</li>
+        }
+      </ul>
+    </div>
+  </div>
+
+  } @empty {
+  <div class="empty">
+    <span> No food packages found </span>
+  </div>
+  }
+</section>
