@@ -1,0 +1,113 @@
+{
+  "consumer": {
+    "name": "nur-catering-react"
+  },
+  "interactions": [
+    {
+      "description": "a request to create a food package",
+      "providerStates": [
+        {
+          "name": "create a food package"
+        }
+      ],
+      "request": {
+        "body": {
+          "addressId": "cee83348-b28d-4364-81c1-d0dd81da654f",
+          "clientId": "2b5265db-5ec2-48b9-b296-876d5e0439e7",
+          "recipeId": "57b299d8-b752-4b36-8000-38b89da285e5"
+        },
+        "headers": {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        "method": "POST",
+        "path": "/api/catering/createPackage"
+      },
+      "response": {
+        "body": {
+          "addressId": "cee83348-b28d-4364-81c1-d0dd81da654f",
+          "clientId": "2b5265db-5ec2-48b9-b296-876d5e0439e7",
+          "foods": [],
+          "id": "6975eb5f-73b7-4ed4-8b16-f721ba055c6b",
+          "recipeId": "57b299d8-b752-4b36-8000-38b89da285e5",
+          "status": "NEW"
+        },
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          },
+          "header": {},
+          "status": {}
+        },
+        "status": 200
+      }
+    },
+    {
+      "description": "a request to get all food packages",
+      "providerStates": [
+        {
+          "name": "get all food packages"
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "path": "/api/catering/getAllPackages"
+      },
+      "response": {
+        "body": [
+          {
+            "addressId": "cee83348-b28d-4364-81c1-d0dd81da654f",
+            "clientId": "2b5265db-5ec2-48b9-b296-876d5e0439e7",
+            "foods": [],
+            "id": "6975eb5f-73b7-4ed4-8b16-f721ba055c6b",
+            "recipeId": "57b299d8-b752-4b36-8000-38b89da285e5",
+            "status": "NEW"
+          }
+        ],
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "matchingRules": {
+          "body": {
+            "$": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            }
+          },
+          "header": {},
+          "status": {}
+        },
+        "status": 200
+      }
+    }
+  ],
+  "metadata": {
+    "pact-js": {
+      "version": "13.2.0"
+    },
+    "pactRust": {
+      "ffi": "0.4.22",
+      "models": "1.2.3"
+    },
+    "pactSpecification": {
+      "version": "3.0.0"
+    }
+  },
+  "provider": {
+    "name": "catering-provider"
+  }
+}
